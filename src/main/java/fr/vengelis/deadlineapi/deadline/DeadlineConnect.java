@@ -13,6 +13,7 @@ public class DeadlineConnect implements IDeadlineConnect {
 
     private ConnectionProperty cp;
     private Groups groups;
+    private JobReports jobReports;
 
     public DeadlineConnect(String host, Integer port) {
         String address = host + ":" + port.toString();
@@ -21,10 +22,15 @@ public class DeadlineConnect implements IDeadlineConnect {
         System.out.println("CP Created");
 
         groups = new Groups(cp);
+        jobReports = new JobReports(cp);
 
     }
 
     public Groups getGroups() {
         return this.groups;
+    }
+
+    public JobReports getJobReports() {
+        return jobReports;
     }
 }
