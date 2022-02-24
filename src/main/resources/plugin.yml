@@ -1,0 +1,9 @@
+name: DeadlineAPI
+main: fr.vengelis.deadlineapi.DeadlineApiPlugin
+version: 1.0.0
+description: Translated Python API for Thinkbox Deadline 10.1
+author: Vengelis_
+
+commands:
+  dadebug:
+    description: Debug command
