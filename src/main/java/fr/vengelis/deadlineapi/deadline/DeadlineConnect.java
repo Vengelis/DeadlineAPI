@@ -14,6 +14,7 @@ public class DeadlineConnect implements IDeadlineConnect {
     private ConnectionProperty cp;
     private Groups groups;
     private JobReports jobReports;
+    private Jobs jobs;
 
     public DeadlineConnect(String host, Integer port) {
         String address = host + ":" + port.toString();
@@ -23,6 +24,7 @@ public class DeadlineConnect implements IDeadlineConnect {
 
         groups = new Groups(cp);
         jobReports = new JobReports(cp);
+        jobs = new Jobs(cp);
 
     }
 
@@ -32,5 +34,9 @@ public class DeadlineConnect implements IDeadlineConnect {
 
     public JobReports getJobReports() {
         return jobReports;
+    }
+
+    public Jobs getJobs() {
+        return jobs;
     }
 }
