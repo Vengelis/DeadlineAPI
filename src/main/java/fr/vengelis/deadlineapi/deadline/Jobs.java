@@ -184,9 +184,59 @@ public class Jobs {
         return this.cp.put("/api/jobs", body);
     }
 
+    public String setJobMachineLimitMaximum(String id, Integer limit) {
+        Gson g = new Gson();
+        String body = g.toJson("{\"Command\":\"setjobmachinelimitmaximum\",\"JobID\":" + id + ", \"Limit\":" + limit + "}");
+        return this.cp.put("/api/jobs", body);
+    }
 
+    public String appendJobFrameRange(String id, String frameList) {
+        Gson g = new Gson();
+        String body = g.toJson("{\"Command\":\"appendjobframerange\",\"JobID\":" + id + ", \"FrameList\":" + frameList + "}");
+        return this.cp.put("/api/jobs", body);
+    }
 
+    public String setJobFrameRange(String id, String frameList, Integer chunkSize) {
+        Gson g = new Gson();
+        String body = g.toJson("{\"Command\":\"appendjobframerange\",\"JobID\":" + id + ", \"FrameList\":" + frameList + ", \"ChunkSize\": " + chunkSize + "}");
+        return this.cp.put("/api/jobs", body);
+    }
 
+    public String getJobDetails(List<String> ids) {
+        String script = "/api/jobs";
+        script = script + "?JobID=" + DeadlineUtils.ArrayToCommaSeparatedString(ids) + "&Details=true";
+        return this.cp.get(script);
+    }
+
+    public String getDeletedJobs(List<String> ids) {
+        String script = "/api/jobs?Deleted=true";
+        if(!ids.isEmpty()){
+            script = script + "&JobID=" + DeadlineUtils.ArrayToCommaSeparatedString(ids);
+        }
+        return this.cp.get(script);
+    }
+
+    public String getDeletedJobIds() {
+        return this.cp.get("/api/jobs?IdOnly=true&Deleted=true");
+    }
+
+    public String PurgeDeletedJobs(List<String> ids) {
+        String script = "/api/jobs?Purge=true";
+        script = script + "&JobID=" + DeadlineUtils.ArrayToCommaSeparatedString(ids);
+        return this.cp.delete(script);
+    }
+
+    public String undeleteJob(String id) {
+        Gson g = new Gson();
+        String body = g.toJson("{\"Command\":\"undelete\",\"JobID\":" + id + "}");
+        return this.cp.put("/api/jobs", body);
+    }
+
+    public String undeleteJobs(String ids) {
+        Gson g = new Gson();
+        String body = g.toJson("{\"Command\":\"undelete\",\"JobID\":" + ids + "}");
+        return this.cp.put("/api/jobs", body);
+    }
 
 
 
