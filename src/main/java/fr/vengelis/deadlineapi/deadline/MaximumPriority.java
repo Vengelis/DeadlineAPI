@@ -8,4 +8,14 @@
 package fr.vengelis.deadlineapi.deadline;
 
 public class MaximumPriority {
+
+    private ConnectionProperty cp;
+
+    public MaximumPriority(ConnectionProperty cp) {
+        this.cp = cp;
+    }
+
+    public String getMaximumPriority() {
+        return this.cp.get("/api/maximumpriority");
+    }
 }
