@@ -15,6 +15,11 @@ public class DeadlineConnect implements IDeadlineConnect {
     private Groups groups;
     private JobReports jobReports;
     private Jobs jobs;
+    private JobTaskLimit jobTaskLimit;
+    private Limits limits;
+
+    private MaximumPriority maximumPriority;
+    private Plugins plugins;
 
     public DeadlineConnect(String host, Integer port) {
         String address = host + ":" + port.toString();
@@ -25,6 +30,11 @@ public class DeadlineConnect implements IDeadlineConnect {
         groups = new Groups(cp);
         jobReports = new JobReports(cp);
         jobs = new Jobs(cp);
+        jobTaskLimit = new JobTaskLimit(cp);
+        limits = new Limits(cp);
+
+        maximumPriority = new MaximumPriority(cp);
+        plugins = new Plugins(cp);
 
     }
 
@@ -38,5 +48,23 @@ public class DeadlineConnect implements IDeadlineConnect {
 
     public Jobs getJobs() {
         return jobs;
+    }
+
+    public JobTaskLimit getJobTaskLimit() {
+        return jobTaskLimit;
+    }
+
+    public Limits getLimits() {
+        return limits;
+    }
+
+
+
+    public MaximumPriority getMaximumPriority() {
+        return maximumPriority;
+    }
+
+    public Plugins getPlugins() {
+        return plugins;
     }
 }

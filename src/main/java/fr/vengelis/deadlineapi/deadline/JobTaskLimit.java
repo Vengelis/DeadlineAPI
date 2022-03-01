@@ -8,4 +8,14 @@
 package fr.vengelis.deadlineapi.deadline;
 
 public class JobTaskLimit {
+
+    private ConnectionProperty cp;
+
+    public JobTaskLimit(ConnectionProperty cp) {
+        this.cp = cp;
+    }
+
+    public String getJobTaskLimit() {
+        return this.cp.get("/api/jobtesklimit");
+    }
 }
