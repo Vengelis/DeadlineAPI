@@ -18,6 +18,8 @@ public class DeadlineConnect implements IDeadlineConnect {
     private JobTaskLimit jobTaskLimit;
     private Limits limits;
 
+    private MaximumPriority maximumPriority;
+
     public DeadlineConnect(String host, Integer port) {
         String address = host + ":" + port.toString();
         cp = new ConnectionProperty(address);
@@ -29,6 +31,8 @@ public class DeadlineConnect implements IDeadlineConnect {
         jobs = new Jobs(cp);
         jobTaskLimit = new JobTaskLimit(cp);
         limits = new Limits(cp);
+
+        maximumPriority = new MaximumPriority(cp);
 
     }
 
@@ -50,5 +54,11 @@ public class DeadlineConnect implements IDeadlineConnect {
 
     public Limits getLimits() {
         return limits;
+    }
+
+
+
+    public MaximumPriority getMaximumPriority() {
+        return maximumPriority;
     }
 }
