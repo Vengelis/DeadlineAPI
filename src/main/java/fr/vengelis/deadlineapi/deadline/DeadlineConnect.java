@@ -15,6 +15,7 @@ public class DeadlineConnect implements IDeadlineConnect {
     private Groups groups;
     private JobReports jobReports;
     private Jobs jobs;
+    private JobTaskLimit jobTaskLimit;
 
     public DeadlineConnect(String host, Integer port) {
         String address = host + ":" + port.toString();
@@ -25,6 +26,7 @@ public class DeadlineConnect implements IDeadlineConnect {
         groups = new Groups(cp);
         jobReports = new JobReports(cp);
         jobs = new Jobs(cp);
+        jobTaskLimit = new JobTaskLimit(cp);
 
     }
 
