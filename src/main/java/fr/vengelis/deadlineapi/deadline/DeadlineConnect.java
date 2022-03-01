@@ -41,4 +41,8 @@ public class DeadlineConnect implements IDeadlineConnect {
     public Jobs getJobs() {
         return jobs;
     }
+
+    public JobTaskLimit getJobTaskLimit() {
+        return jobTaskLimit;
+    }
 }
