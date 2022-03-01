@@ -16,6 +16,7 @@ public class DeadlineConnect implements IDeadlineConnect {
     private JobReports jobReports;
     private Jobs jobs;
     private JobTaskLimit jobTaskLimit;
+    private Limits limits;
 
     public DeadlineConnect(String host, Integer port) {
         String address = host + ":" + port.toString();
@@ -27,6 +28,7 @@ public class DeadlineConnect implements IDeadlineConnect {
         jobReports = new JobReports(cp);
         jobs = new Jobs(cp);
         jobTaskLimit = new JobTaskLimit(cp);
+        limits = new Limits(cp);
 
     }
 
@@ -44,5 +46,9 @@ public class DeadlineConnect implements IDeadlineConnect {
 
     public JobTaskLimit getJobTaskLimit() {
         return jobTaskLimit;
+    }
+
+    public Limits getLimits() {
+        return limits;
     }
 }
