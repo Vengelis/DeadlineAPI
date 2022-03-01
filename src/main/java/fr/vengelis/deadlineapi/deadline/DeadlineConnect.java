@@ -19,6 +19,7 @@ public class DeadlineConnect implements IDeadlineConnect {
     private Limits limits;
 
     private MaximumPriority maximumPriority;
+    private Plugins plugins;
 
     public DeadlineConnect(String host, Integer port) {
         String address = host + ":" + port.toString();
@@ -33,6 +34,7 @@ public class DeadlineConnect implements IDeadlineConnect {
         limits = new Limits(cp);
 
         maximumPriority = new MaximumPriority(cp);
+        plugins = new Plugins(cp);
 
     }
 
@@ -60,5 +62,9 @@ public class DeadlineConnect implements IDeadlineConnect {
 
     public MaximumPriority getMaximumPriority() {
         return maximumPriority;
+    }
+
+    public Plugins getPlugins() {
+        return plugins;
     }
 }

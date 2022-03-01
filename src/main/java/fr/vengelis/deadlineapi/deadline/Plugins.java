@@ -8,4 +8,18 @@
 package fr.vengelis.deadlineapi.deadline;
 
 public class Plugins {
+
+    private ConnectionProperty cp;
+
+    public Plugins(ConnectionProperty cp) {
+        this.cp = cp;
+    }
+
+    public String getPluginNames() {
+        return this.cp.get("/api/plugins");
+    }
+
+    public String getEventPluginNames() {
+        return this.cp.get("/api/plugins?EventNames=true");
+    }
 }
